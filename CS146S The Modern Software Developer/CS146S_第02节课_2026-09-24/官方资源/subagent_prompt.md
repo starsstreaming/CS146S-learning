@@ -1,0 +1,17 @@
+Analyze the performance characteristics of a small todo app and return a findings report. Do NOT modify any file in the repo. Do NOT touch the real ~/.todo_tasks.json — for anything you run, use a temporary storage path (TaskStorage(Path(...)) accepts one) or set HOME to a temp dir. Put any benchmark scripts/data in this scratchpad: /private/tmp/claude-501/-Users-mihaileric-Documents-miscellaneous-claude-code-demystified/scratchpad/perf
+
+Repo: /Users/mihaileric/Documents/miscellaneous/claude-code-demystified
+- todo/models.py — Task dataclass (nested subtasks, recurrence), to_dict/from_dict, recursive get_subtask_by_id/remove_subtask with prefix-ID matching.
+- todo/storage.py — TaskStorage: every operation does load_tasks() (read + json.loads + Task.from_dict for the whole file) then save_tasks() (serialize + write whole file, indent=2). No caching, no locking, non-atomic write_text. get_task_by_id etc. are linear scans.
+- todo/cli.py — argparse CLI; each command constructs TaskStorage; some commands load the file more than once (e.g. cmd_done does get_task_by_id then complete_task; cmd_delete / cmd_add_subtask / cmd_done_subtask pre-lookup then mutate).
+- api/main.py — FastAPI app with a module-level TaskStorage; async def handlers that call blocking file I/O; GET / loads all tasks and renders a Jinja2 template.
+- web/src/app.ts, storage.ts — Express/TypeScript copy using fs.readFileSync/writeFileSync, same shared JSON file.
+
+What to cover:
+1. Algorithmic complexity of each operation (load/save per op, lookups, subtask recursion, filtering/sorting in list) — count file reads/writes per CLI command and per HTTP request.
+2. Empirical measurements: benchmark representative ops (add, get_task_by_id, complete_task, list/filter, add_subtask) at e.g. 100 / 1k / 10k / 50k tasks, plus a nested-subtask case. Also measure CLI process startup (`python3 -m todo list` wall time vs. time in storage) and JSON file size growth. Keep total runtime reasonable (a few minutes max). Python only is fine; skip TS benchmarks unless cheap.
+3. Concurrency & correctness under load: lost updates when the CLI, FastAPI, and Express write the same file concurrently (read-modify-write race), non-atomic writes / partial-file risk combined with load_tasks returning [] on JSONDecodeError (possible total data loss), blocking I/O inside async FastAPI handlers. Demonstrate the lost-update race with a small script if feasible.
+4. Unbounded growth: completed tasks (including recurring-task history — each completion appends a new task) are never pruned.
+5. Prioritized recommendations with estimated impact (e.g. atomic write via temp file + os.replace, file locking, single load per command, in-memory index/cache, compact JSON, archiving completed tasks, sync def handlers or threadpool in FastAPI, SQLite if scale matters). Note which matter at realistic personal-todo scale (<1k tasks) vs. only at large scale.
+
+Return a concise markdown report: a summary table of key findings (severity, area, finding), a measurements table with actual numbers you observed (state machine/Python version), then detailed findings with file:line references, then prioritized recommendations. Clearly separate measured facts from inferences.
