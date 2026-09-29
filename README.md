@@ -1,9 +1,6 @@
 # CS146S 听课笔记
 
-斯坦福 2026 秋季 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的个人记录。课上到哪，这里补到哪，一直维护到这学期结束。
-
-这门课不太讲某个工具的按钮。工具换得很快。它更关心人怎么把意图、上下文和验收标准交给编程智能体，再把产出收成能维护的系统。
-
+斯坦福 2026 秋季 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的个人记录。
 这里不是官方仓库。课件、课堂材料和作业原文归课程方。`个人补充` 是对照当周材料整理的中文讲解，整理时用了 Opus，用来回看，不代替上课。
 
 ## 目录
