@@ -1,0 +1,4 @@
+# Assignment hygiene: the week-1 proxy settings and any captured flows must never be committed.
+.claude/
+session.flows
+*.flows

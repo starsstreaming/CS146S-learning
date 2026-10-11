@@ -27,6 +27,13 @@ PIPFILE.lock
 
 # Environment variables
 .env
+
+# Local MCP registration and Hunnu session cache (never commit)
+.mcp.json
+**/.mcp.json
+.hunnu-mcp/
+**/.hunnu-session.json
+*.session.json
 .venv
 env/
 venv/

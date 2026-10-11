@@ -1,0 +1,3 @@
+- •[Building a Coding Agent](https://youtube.com/watch?v=s7ZzkdvCMDY)
+- •[Lessons from Building Claude Code](https://x.com/trq212/status/2027463795355095314?s=20)
+- •[Dive into Claude Code](https://arxiv.org/pdf/2604.14228)

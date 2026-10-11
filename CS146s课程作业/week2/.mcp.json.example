@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "hunnu-eams": {
+      "command": "poetry",
+      "args": ["run", "python", "-m", "hunnu_mcp"],
+      "cwd": "REPLACE_WITH_ABSOLUTE_PATH_TO_week2",
+      "env": {
+        "HUNNU_BASE_URL": "https://jwglnew.hunnu.edu.cn"
+      }
+    }
+  }
+}
