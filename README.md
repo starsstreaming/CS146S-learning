@@ -1,57 +1,92 @@
-# CS146S 听课笔记
+# CS146S 学习笔记与实践
 
-斯坦福 2026 秋季 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的个人记录。
-这里不是官方仓库。课件、课堂材料和作业原文归课程方。`个人补充` 是对照当周材料整理的中文讲解.
+记录 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的学习过程：中文课程笔记、课堂资料，以及编程智能体与 MCP 的作业实践。
 
-## 目录
+目前整理了 **第 1–5 节课程笔记**，作业目录覆盖 **Week 1–2**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
 
-听课和作业分开放。
+这是个人学习仓库。中文笔记包含个人理解与延伸资料，课程安排、要求和原始材料以课程方发布的内容为准。
 
-```text
-CS146S The Modern Software Developer/     按上课日期
-  └─ 官方资源/                            课件、示例、当堂发的配置
-  └─ 个人补充/                            中文讲解
-CS146s课程作业/                           作业快照，目前到 week 2
+## 课程笔记
+
+按本仓库的第 1–5 节编号导航；部分笔记正文使用不同的讲次标记，阅读时可结合主题与日期对应。
+
+| 节次 | 日期 | 主题 | 笔记 |
+| --- | --- | --- | --- |
+| 01 | 2026-09-22 | 现代软件开发者、最小可用编程 Agent | [阅读笔记](<CS146S_第01节课_2026-09-22_现代软件开发者与最小可用编程Agent.md>) |
+| 02 | 2026-09-24 | 编码智能体解剖：系统提示、工具、配置、计划与上下文压缩 | [阅读笔记](<CS146S_第02节课_2026-09-24_现代编码智能体解剖.md>) |
+| 03 | 2026-09-29 | 高级提示与上下文工程 | [阅读笔记](<CS146S_第03节课-高级提示与上下文工程.md>) |
+| 04 | 2026-10-01 | MCP、工具调用与 Agent Skills | [阅读笔记](<CS146S-第04节课-MCP工具调用与AgentSkills.md>) |
+| 05 | 2026-10-07 | Agent Skills 实战与最佳实践 | [阅读笔记](<CS146S-第05节课-AgentSkills实战与最佳实践.md>) |
+
+建议按顺序阅读：先理解智能体的工具循环，再看真实产品的组成、上下文组织，以及 MCP 和 Skills 如何接入实际工作。
+
+## 课堂资料
+
+[课堂资料目录](<CS146S The Modern Software Developer/>) 按日期保留第 1、2 节的课件、示例与中文补充材料。
+
+- 第 1 节：[课件 PDF](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/官方资源/Lecture 9_22_26.pdf>) · [最小编程 Agent 示例](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/官方资源/coding_agent_from_scratch_lecture.py>) · [逐段拆解](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/个人补充/blog_coding_agent.md>)
+- 第 2 节：[课件 PDF](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/Lecture 9_24_26.pdf>) · [配置与提示材料](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/>) · [延伸阅读](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/reading.md>)
+
+## 作业实践
+
+作业原文保存在各周的 `assignment.md`，`writeup.md` 保留作答提纲；代码与运行说明另列如下。
+
+| 周次 | 主题 | 当前内容 | 入口 |
+| --- | --- | --- | --- |
+| Week 1 | 捕获并分析 Claude Code 会话 | Windows 下的 mitmproxy / CC Switch 中继脚本与抓包说明 | [作业要求](CS146s课程作业/week1/assignment.md) · [抓包配置](CS146s课程作业/week1/CAPTURE-SETUP.md) · [作答提纲](CS146s课程作业/week1/writeup.md) |
+| Week 2 | MCP Server 与认证 | 湖南师范大学教务系统的 Hunnu EAMS MCP 实现、配置模板与测试 | [作业要求](CS146s课程作业/week2/assignment.md) · [运行说明](CS146s课程作业/week2/README.md) · [作答提纲](CS146s课程作业/week2/writeup.md) |
+
+### Week 2：Hunnu EAMS MCP
+
+通过 stdio 向智能体提供只读教务工具，支持课表、成绩、培养计划，以及空教室和开课查询。每位使用者需要在自己的电脑上完成学校 SSO 登录，服务随后使用本地缓存的会话。
+
+使用 Python 3.12 和 Poetry，在仓库根目录执行：
+
+```bash
+cd CS146s课程作业
+poetry install
+poetry run playwright install chromium
+poetry run pytest -q
+
+cd week2
+poetry run python -m hunnu_mcp login
+poetry run python -m hunnu_mcp
 ```
 
-某一节想重看，先读讲解开头的「一分钟速览」，再按需要翻 PDF。做作业只进 `CS146s课程作业/`，笔记目录不参与安装。
+将 [`.mcp.json.example`](CS146s课程作业/week2/.mcp.json.example) 复制为 `.mcp.json`，把 `cwd` 改为本机 `week2` 目录的绝对路径，再交给支持 MCP 的智能体客户端加载。详细说明见 [Week 2 README](CS146s课程作业/week2/README.md)；基础 Python 环境配置见 [作业目录 README](CS146s课程作业/README.md)。
 
-## 第 01 节课 · 9 月 22 日
+工具调用不会自动打开登录浏览器。遇到 `auth_required` 或 `auth_expired` 时，在 `week2` 目录重新运行登录命令。
 
-这节课问的是：代码可以由模型来写之后，开发者还剩下什么。后半段用大约 200 行搭了一个最小的编程智能体，把「智能体就是一个带工具的循环」落到能跑的代码上。
+### 本地配置与数据
 
-- [中文讲解](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/个人补充/CS146S_第01节课_2026-09-22_现代软件开发者与最小可用编程Agent.md>)
-- [把这个小智能体逐段拆开](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/个人补充/blog_coding_agent.md>)
-- [课件 PDF](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/官方资源/Lecture 9_22_26.pdf>)
-- [课堂示例](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/官方资源/coding_agent_from_scratch_lecture.py>)
+抓包内容可能包含 API 密钥、请求正文和个人信息；教务会话缓存也属于敏感数据。不要提交 `.env`、`.mcp.json`、`.claude/`、`*.flows` 或会话缓存，仓库已有相应忽略规则。公开配置使用 `.example` 模板。
 
-## 第 02 节课 · 9 月 24 日
+## 仓库结构
 
-上节课是骨架，这节课拆真实产品的外壳：系统提示、项目配置、工具列表、计划模式、技能、子智能体、钩子，以及把历史压成摘要。讲解是对着下面这些文件写的。
+```text
+.
+├── README.md
+├── CS146S_第01节课_… .md
+├── CS146S_第02节课_… .md
+├── CS146S_第03节课-高级提示与上下文工程.md
+├── CS146S-第04节课-MCP工具调用与AgentSkills.md
+├── CS146S-第05节课-AgentSkills实战与最佳实践.md
+├── CS146S The Modern Software Developer/
+│   ├── CS146S_第01节课_2026-09-22/
+│   └── CS146S_第02节课_2026-09-24/
+└── CS146s课程作业/
+    ├── pyproject.toml
+    ├── poetry.lock
+    ├── week1/                 作业原文、抓包说明与中继脚本
+    └── week2/
+        ├── README.md          MCP 运行说明
+        ├── hunnu_mcp/         MCP 服务实现
+        └── tests/             解析、会话与 MCP 协议测试
+```
 
-- [中文讲解](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/个人补充/CS146S_第02节课_2026-09-24_现代编码智能体解剖.md>)
-- [课件 PDF](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/Lecture 9_24_26.pdf>)
-- [system_prompt.md](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/system_prompt.md>)
-- [tool_list.md](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/tool_list.md>)
-- [config_files.md](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/config_files.md>)
-- [plan_mode.md](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/plan_mode.md>)
-- [subagent_prompt.md](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/subagent_prompt.md>)
-- [compaction_prompt.md](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/compaction_prompt.md>)
+## 来源与版权
 
-## 作业
+- [课程页面](https://themodernsoftware.dev)
+- [作业上游仓库](https://github.com/mihail911/modern-software-dev-assignments)
 
-作业原文是英文，说明在各周的 `assignment.md`，作答提纲在 `writeup.md`。Python 环境沿用课程仓库的装法，见 [CS146s课程作业/README.md](CS146s课程作业/README.md)。
-
-| 周 | 要做的事 | 说明 |
-| --- | --- | --- |
-| Week 1 | 用代理抓住一次真实的 Claude Code 会话，把请求拆开 | [assignment.md](CS146s课程作业/week1/assignment.md) |
-| Week 2 | 给一个第三方 API 做 MCP server。重点是工具好不好被智能体调用，以及 OAuth | [assignment.md](CS146s课程作业/week2/assignment.md) |
-
-后面的课和作业仍按这个分法往里加：一节课一个日期目录，一周作业一个 `weekN/`。
-
-## 来源
-
-- 课程页面：<https://themodernsoftware.dev>
-- 作业上游：<https://github.com/mihail911/modern-software-dev-assignments>
-
-课表、评分和材料以课程页面为准。课件和作业文本的版权归课程方。
+课件、课堂材料和作业原文的版权归课程方及各自作者。个人笔记仅供学习参考，发现理解偏差或链接问题欢迎通过 Issue 指出。
