@@ -2,7 +2,7 @@
 
 记录 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的学习过程：中文课程笔记、课堂资料，以及编程智能体与 MCP 的作业实践。
 
-目前整理了 **第 1–6 节课程笔记**，作业目录覆盖 **Week 1–2**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
+目前整理了 **第 1–6 节课程笔记**，作业目录覆盖 **Week 1–3**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
 
 这是个人学习仓库。中文笔记包含个人理解与延伸资料，课程安排、要求和原始材料以课程方发布的内容为准。
 
@@ -36,6 +36,7 @@
 | --- | --- | --- | --- |
 | Week 1 | 捕获并分析 Claude Code 会话 | Windows 下的 mitmproxy / CC Switch 中继脚本与抓包说明 | [作业要求](CS146s课程作业/week1/assignment.md) · [抓包配置](CS146s课程作业/week1/CAPTURE-SETUP.md) · [作答提纲](CS146s课程作业/week1/writeup.md) |
 | Week 2 | MCP Server 与认证 | 湖南师范大学教务系统的 Hunnu EAMS MCP 实现、配置模板与测试 | [作业要求](CS146s课程作业/week2/assignment.md) · [运行说明](CS146s课程作业/week2/README.md) · [作答提纲](CS146s课程作业/week2/writeup.md) |
+| Week 3 | 编写一个 Agent Skill | 上游作业原文与作答提纲；技能目录尚未开始写 | [作业要求](CS146s课程作业/week3/assignment.md) · [作答提纲](CS146s课程作业/week3/writeup.md) |
 
 ### Week 2：Hunnu EAMS MCP
 
@@ -80,10 +81,11 @@ poetry run python -m hunnu_mcp
     ├── pyproject.toml
     ├── poetry.lock
     ├── week1/                 作业原文、抓包说明与中继脚本
-    └── week2/
-        ├── README.md          MCP 运行说明
-        ├── hunnu_mcp/         MCP 服务实现
-        └── tests/             解析、会话与 MCP 协议测试
+    ├── week2/
+    │   ├── README.md          MCP 运行说明
+    │   ├── hunnu_mcp/         MCP 服务实现
+    │   └── tests/             解析、会话与 MCP 协议测试
+    └── week3/                 作业原文与作答提纲
 ```
 
 ## 来源与版权
