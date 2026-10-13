@@ -1,9 +1,9 @@
-# CS146S 第 11 讲学习笔记：Agent Skills 实战——把"怎么做事"写成 agent 能复用的技能
+# CS146S 第 05 节课学习笔记：Agent Skills 实战——把"怎么做事"写成 agent 能复用的技能
 
 > **课程**：Stanford CS146S *The Modern Software Developer*（Fall 2026，Mihail Eric）
-> **讲次**：2026-10-07 讲（按本系列顺序记为第 11 讲）—— *Agent Skills*
+> **讲次**：第 05 节课（2026-10-06，周二）—— *Agent Skills*
 > **补充材料**：Cursor 官方插件 [pstack](https://github.com/cursor/plugins/tree/main/pstack)（poteto）、[mattpocock/skills](https://github.com/mattpocock/skills)、[browse.sh](https://browse.sh/)（Browserbase）、[obra/superpowers](https://github.com/obra/superpowers)、[Agent Skills 规范](https://agentskills.io/specification)
-> **前置知识**：第 9 讲（RePPIT、上下文工程）、第 10 讲（MCP、工具调用）
+> **前置知识**：第 03 节课（RePPIT、上下文工程）、第 04 节课（MCP、工具调用）
 > **阅读时长**：约 50 分钟
 
 ---
@@ -121,7 +121,7 @@ Skills  ≈ 给新员工的《岗位操作手册》（发版流程、代码规�
 
 ## 3. Agent Skills 快速回顾：一个文件夹 + 一份说明书
 
-> 第 10 讲已经讲过 Skills 的基本概念，这里只做快速回顾并补充规范细节。
+> 第 04 节课已经讲过 Skills 的基本概念，这里只做快速回顾并补充规范细节。
 
 ### 3.1 课件定义
 
@@ -169,7 +169,7 @@ skill-name/
 第 3 层  需要时：读取 references/ 里的细节，或执行 scripts/ 里的脚本
 ```
 
-**好处**：装 100 个技能，平时也只多占几千 token；真正用到时才"翻手册"。这正好呼应第 9 讲"守住上下文窗口的聪明区"。
+**好处**：装 100 个技能，平时也只多占几千 token；真正用到时才"翻手册"。这正好呼应第 03 节课"守住上下文窗口的聪明区"。
 
 ---
 
@@ -190,9 +190,9 @@ skill-name/
 
 ## 5. 类别一：代码理解与规划
 
-### 5.1 RePPIT 技能（回顾第 9 讲）
+### 5.1 RePPIT 技能（回顾第 03 节课）
 
-第 9 讲的 RePPIT（Research → Propose → Plan → Implement → Test）本身就可以拆成一组技能：
+第 03 节课的 RePPIT（Research → Propose → Plan → Implement → Test）本身就可以拆成一组技能：
 
 | 阶段 | 可以做成的技能 | 产出物 |
 |---|---|---|
@@ -503,9 +503,9 @@ browse cloud fetch "https://www.nytimes.com/section/us"
 
 > ⚠️ **注意合规**：目录里有些技能使用了网站的"未公开内部接口"或住宅代理，实际使用时要自己确认是否符合目标网站的服务条款，以及公司/学校的安全规定。
 
-### 8.4 和第 10 讲 Code Mode 的联系
+### 8.4 和第 04 节课 Code Mode 的联系
 
-第 10 讲的 Code Mode 思路是"**与其让模型一个个点工具，不如让它写代码一次性调**"；browse.sh 的思路是"**与其让模型一个个点页面，不如告诉它直接调哪个接口**"。两者本质相同：**把高频、确定的路径提前固化，省掉模型的摸索成本。**
+第 04 节课的 Code Mode 思路是"**与其让模型一个个点工具，不如让它写代码一次性调**"；browse.sh 的思路是"**与其让模型一个个点页面，不如告诉它直接调哪个接口**"。两者本质相同：**把高频、确定的路径提前固化，省掉模型的摸索成本。**
 
 ---
 
@@ -812,7 +812,7 @@ description: Verify changes to the expense tracker by running backend tests and 
 
 ## 12. 再看 API vs MCP vs Skills
 
-课件最后再次对比三者（第 10 讲也讲过，这里作为收尾巩固）：
+课件最后再次对比三者（第 04 节课也讲过，这里作为收尾巩固）：
 
 | | **APIs** | **MCP** | **Skills** |
 |---|---|---|---|
@@ -894,7 +894,7 @@ AGENTS.md 每轮都在上下文里，规范一多就持续占用 token；做成�
 </details>
 
 <details>
-<summary><b>Q8：browse.sh 为什么能省 token？它的思路和第 10 讲的 Code Mode 有什么共同点？</b></summary>
+<summary><b>Q8：browse.sh 为什么能省 token？它的思路和第 04 节课的 Code Mode 有什么共同点？</b></summary>
 
 技能里提前写好了建议的 DOM 选择器和可直接调用的 XHR/API 请求，agent 不必反复截图、看图、找按钮。共同点：都把高频、确定的路径提前固化，省掉模型逐步摸索的成本。
 
@@ -964,4 +964,4 @@ Superpowers：想要一套开箱即用、强约束开发纪律的人。mattpococ
 
 ---
 
-> 本文基于 CS146S Lecture 11（2026-10-07）课件整理，并结合 pstack、mattpocock/skills、browse.sh、Superpowers 的公开文档进行扩展。各技能库更新很快，具体命令和技能名以各仓库最新 README 为准。
+> 本文基于 CS146S 第 05 节课（2026-10-06）课件整理，并结合 pstack、mattpocock/skills、browse.sh、Superpowers 的公开文档进行扩展。各技能库更新很快，具体命令和技能名以各仓库最新 README 为准。

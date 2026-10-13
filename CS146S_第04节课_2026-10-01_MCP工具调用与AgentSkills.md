@@ -1,7 +1,7 @@
-# CS146S 第 10 讲学习笔记：MCP、工具调用与 Agent Skills——让模型连上真实世界
+# CS146S 第 04 节课学习笔记：MCP、工具调用与 Agent Skills——让模型连上真实世界
 
 > **课程**：Stanford CS146S *The Modern Software Developer*（Fall 2026，Mihail Eric）
-> **讲次**：Lecture 10（2026-10-01）—— *MCP, Tool-calling, and Beyond*
+> **讲次**：第 04 节课（2026-10-01，周四）—— *MCP, Tool-calling, and Beyond*
 > **补充材料**：Cloudflare《Scaling MCP adoption: Our reference architecture for enterprise MCP》、MCP 官方规范、Anthropic Agent Skills 文档
 > **阅读时长**：约 45 分钟
 
@@ -387,7 +387,7 @@ docstring、参数描述、**错误信息**都会进入模型上下文，本质�
 
 ### 8.1 问题：工具数量爆炸
 
-接的 MCP server 越多，工具定义越多，上下文被工具清单撑满（回忆第 9 讲的"dumb zone"）。Cloudflare 的实测数据：
+接的 MCP server 越多，工具定义越多，上下文被工具清单撑满（回忆第 03 节课的"dumb zone"）。Cloudflare 的实测数据：
 
 | 场景 | 工具数 | 工具定义占用 |
 |---|---|---|
@@ -606,7 +606,7 @@ server 多了以后出现新问题：**员工不知道有哪些 server 可用**�
 
 典型用例：文档撰写、PowerPoint 制作、数据分析……
 
-> Agent Skills 由 Anthropic 于 2025 年 10 月推出，随后作为开放标准发布（agentskills.io），目前 Claude Code、Codex、Cursor、Gemini CLI 等多种工具都支持。第 9 讲的 Superpowers 就是一整套 skills。
+> Agent Skills 由 Anthropic 于 2025 年 10 月推出，随后作为开放标准发布（agentskills.io），目前 Claude Code、Codex、Cursor、Gemini CLI 等多种工具都支持。第 03 节课的 Superpowers 就是一整套 skills。
 
 ### 10.2 SKILL.md 长什么样（课件第 16 页）
 
