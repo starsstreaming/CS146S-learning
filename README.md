@@ -21,6 +21,8 @@
 
 建议按顺序阅读：先理解智能体的工具循环，再看真实产品的组成、上下文组织，以及 MCP 和 Skills 如何接入实际工作。
 
+想边读边做，可以使用[学习路线与验收清单](LEARNING_GUIDE.md)：按节次连接阅读、最小练习和作业，先跑无需校园账号的本地测试，再按条件进入真实集成。
+
 ## 课堂资料
 
 [课堂资料目录](<CS146S The Modern Software Developer/>) 按日期保留第 1、2 节的课件、示例与中文补充材料。
@@ -47,9 +49,13 @@
 ```bash
 cd CS146s课程作业
 poetry install
-poetry run playwright install chromium
 poetry run pytest -q
+```
 
+以上测试使用本地样例和 mock，无需学校账号、浏览器安装或模型 API 密钥。测试通过仅代表本地解析与 MCP 协议检查通过。需要真实教务查询时，再安装浏览器并登录：
+
+```bash
+poetry run playwright install chromium
 cd week2
 poetry run python -m hunnu_mcp login
 poetry run python -m hunnu_mcp
@@ -58,6 +64,8 @@ poetry run python -m hunnu_mcp
 将 [`.mcp.json.example`](CS146s课程作业/week2/.mcp.json.example) 复制为 `.mcp.json`，把 `cwd` 改为本机 `week2` 目录的绝对路径，再交给支持 MCP 的智能体客户端加载。详细说明见 [Week 2 README](CS146s课程作业/week2/README.md)；基础 Python 环境配置见 [作业目录 README](CS146s课程作业/README.md)。
 
 工具调用不会自动打开登录浏览器。遇到 `auth_required` 或 `auth_expired` 时，在 `week2` 目录重新运行登录命令。
+
+当前实现采用学校 SSO Cookie，提供只读查询；Week 2 原作业另外要求 OAuth 授权码交换、令牌刷新和写工具。两者的对应关系见 [Week 2 运行说明](CS146s课程作业/week2/README.md)。
 
 ### 本地配置与数据
 

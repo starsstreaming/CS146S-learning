@@ -21,7 +21,19 @@ These steps work with Python 3.12.
    ```
 
 4. Install project dependencies with Poetry (inside the activated Conda env)
-   From the repository root:
+   From this directory (`CS146s课程作业/`, which contains `pyproject.toml`), not the outer learning repository root:
    ```bash
    poetry install --no-interaction
    ```
+
+## Local tests before account setup
+
+From `CS146s课程作业/` after installing dependencies:
+
+```bash
+poetry run pytest -q
+```
+
+The tests use local fixtures, mocked HTTP responses, and an in-process MCP client. They do not require a school account, a browser download, or a model API key. Dependency installation still needs network access. Passing these tests does not verify a real school login or an agent client's stdio integration.
+
+For the real Hunnu EAMS integration, continue with the [Week 2 setup](week2/README.md). For a reading-to-practice plan and assignment completion criteria, see the [learning guide](../LEARNING_GUIDE.md).
