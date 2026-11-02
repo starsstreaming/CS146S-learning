@@ -2,7 +2,7 @@
 
 记录 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的学习过程：中文课程笔记、课堂资料，以及编程智能体与 MCP 的作业实践。
 
-目前整理了 **8 篇课程笔记（第 1–7、10 节）**，作业目录覆盖 **Week 1–3**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
+目前整理了 **9 篇课程笔记（第 1–7、10–11 节）**，作业目录覆盖 **Week 1–3**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
 
 这是个人学习仓库。中文笔记包含个人理解与延伸资料，课程安排、要求和原始材料以课程方发布的内容为准。
 
@@ -20,8 +20,9 @@
 | 06 | 2026-10-08 周四 | 常驻智能体如何工作（Lee Robinson 嘉宾讲座） | [阅读笔记](<CS146S_第06节课_2026-10-08_常驻智能体工作原理.md>) |
 | 07 | 2026-10-13 周二 | 定制 Agent 配置：AGENTS.md、Hooks、Skills 与子智能体 | [阅读笔记](<CS146S_第07节课_2026-10-13_定制Agent配置.md>) |
 | 10 | 2026-10-22 周四 | 代码库就绪与后台编码 Agent：可验证性、上下文分层与并行隔离 | [阅读笔记](<CS146S_第10节课_2026-10-22_代码库就绪与后台编码Agent.md>) |
+| 11 | 2026-10-27 周二 | 智能体式代码审查：Claude Code / Greptile / Cloudflare 实践与评测 | [阅读笔记](<CS146S_第11节课_2026-10-27_智能体式代码审查.md>) |
 
-第 8、9 节笔记待补充。第 10 节聚焦 Agent-Ready Codebase（适合智能体工作的代码库）与后台编码 Agent，可结合第 7 节的配置方法阅读。
+第 8、9 节笔记待补充。第 10 节聚焦 Agent-Ready Codebase（适合智能体工作的代码库）与后台编码 Agent；第 11 节讲 Agentic Code Review（智能体式代码审查），可结合第 10 节与作业 5 阅读。
 
 建议按顺序阅读：先理解智能体的工具循环，再看真实产品的组成、上下文组织，以及 MCP 和 Skills 如何接入实际工作。
 
@@ -29,10 +30,11 @@
 
 ## 课堂资料
 
-[课堂资料目录](<CS146S The Modern Software Developer/>) 按日期保留第 1–7 节的课件与相关材料，第 1、2 节另含示例与中文补充材料。
+[课堂资料目录](<CS146S The Modern Software Developer/>) 按日期保留第 1–7、11 节的课件与相关材料，第 1、2 节另含示例与中文补充材料。
 
 - 第 1 节：[课件 PDF](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/官方资源/Lecture 9_22_26.pdf>) · [最小编程 Agent 示例](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/官方资源/coding_agent_from_scratch_lecture.py>) · [逐段拆解](<CS146S The Modern Software Developer/CS146S_第01节课_2026-09-22/个人补充/blog_coding_agent.md>)
 - 第 2 节：[课件 PDF](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/Lecture 9_24_26.pdf>) · [配置与提示材料](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/>) · [延伸阅读](<CS146S The Modern Software Developer/CS146S_第02节课_2026-09-24/官方资源/reading.md>)
+- 第 11 节：[课件 PPTX](<CS146S The Modern Software Developer/CS146S_第11节课_2026-10-27/官方资源/Lecture 10_27_26.pptx>)
 
 ## 作业实践
 
@@ -88,6 +90,7 @@ poetry run python -m hunnu_mcp
 ├── CS146S_第06节课_2026-10-08_常驻智能体工作原理.md
 ├── CS146S_第07节课_2026-10-13_定制Agent配置.md
 ├── CS146S_第10节课_2026-10-22_代码库就绪与后台编码Agent.md
+├── CS146S_第11节课_2026-10-27_智能体式代码审查.md
 ├── CS146S The Modern Software Developer/
 │   ├── CS146S_第01节课_2026-09-22/
 │   ├── CS146S_第02节课_2026-09-24/
