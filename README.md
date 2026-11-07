@@ -43,14 +43,14 @@
 | 周次 | 主题 | 当前内容 | 入口 |
 | --- | --- | --- | --- |
 | Week 1 | 捕获并分析 Claude Code 会话 | Windows 下的 mitmproxy / CC Switch 中继脚本与抓包说明 | [作业要求](CS146s课程作业/week1/assignment.md) · [抓包配置](CS146s课程作业/week1/CAPTURE-SETUP.md) · [作答提纲](CS146s课程作业/week1/writeup.md) |
-| Week 2 | MCP Server 与认证 | 湖南师范大学教务系统的 Hunnu EAMS MCP 实现、配置模板与测试 | [作业要求](CS146s课程作业/week2/assignment.md) · [运行说明](CS146s课程作业/week2/README.md) · [作答提纲](CS146s课程作业/week2/writeup.md) |
+| Week 2 | MCP Server 与认证 | [作业要求](CS146s课程作业/week2/assignment.md) · [运行说明](CS146s课程作业/week2/README.md) · [作答提纲](CS146s课程作业/week2/writeup.md) |
 | Week 3 | 编写一个 Agent Skill | 上游作业原文与作答提纲；技能目录尚未开始写 | [作业要求](CS146s课程作业/week3/assignment.md) · [作答提纲](CS146s课程作业/week3/writeup.md) |
 | Week 4 | 让陌生代码库适合 Agent 工作 | 上游作业原文与作答提纲；探索代码库、编写 AGENTS.md / CLAUDE.md，并用两个小任务验证 | [作业要求](CS146s课程作业/week4/assignment.md) · [作答提纲](CS146s课程作业/week4/writeup.md) |
 | Week 5 | Agent Readiness 报告与对比分析 | 上游作业原文与作答提纲；评估三个开源仓库，比较就绪度、失败项与改进建议 | [作业要求](CS146s课程作业/week5/assignment.md) · [作答提纲](CS146s课程作业/week5/writeup.md) |
 
 Week 4–5 当前仅同步要求与未填写的上游模板，尚未提交作业成果或生成评估报告。同步来源版本见[作业目录说明](CS146s课程作业/README.md#作业导航与同步来源)。
 
-### Week 2：Hunnu EAMS MCP
+### Week 2：EAMS MCP
 
 通过 stdio 向智能体提供只读教务工具，支持课表、成绩、培养计划，以及空教室和开课查询。每位使用者需要在自己的电脑上完成学校 SSO 登录，服务随后使用本地缓存的会话。
 
