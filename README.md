@@ -2,7 +2,7 @@
 
 记录 [CS146S: The Modern Software Developer](https://themodernsoftware.dev) 的学习过程：中文课程笔记、课堂资料，以及编程智能体与 MCP 的作业实践。
 
-目前整理了 **9 篇课程笔记（第 1–7、10–11 节）**，作业目录覆盖 **Week 1–3**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
+目前整理了 **10 篇课程笔记（第 1–7、10–11 节，第 10 节含两篇配套笔记）**，作业目录覆盖 **Week 1–5**。可以从下面的课程导航开始阅读，也可以直接进入作业目录运行实践代码。
 
 这是个人学习仓库。中文笔记包含个人理解与延伸资料，课程安排、要求和原始材料以课程方发布的内容为准。
 
@@ -19,10 +19,10 @@
 | 05 | 2026-10-06 周二 | Agent Skills 实战与最佳实践 | [阅读笔记](<CS146S_第05节课_2026-10-06_AgentSkills实战与最佳实践.md>) |
 | 06 | 2026-10-08 周四 | 常驻智能体如何工作（Lee Robinson 嘉宾讲座） | [阅读笔记](<CS146S_第06节课_2026-10-08_常驻智能体工作原理.md>) |
 | 07 | 2026-10-13 周二 | 定制 Agent 配置：AGENTS.md、Hooks、Skills 与子智能体 | [阅读笔记](<CS146S_第07节课_2026-10-13_定制Agent配置.md>) |
-| 10 | 2026-10-22 周四 | 代码库就绪与后台编码 Agent：可验证性、上下文分层与并行隔离 | [阅读笔记](<CS146S_第10节课_2026-10-22_代码库就绪与后台编码Agent.md>) |
+| 10 | 2026-10-22 周四 | 代码库就绪、后台编码 Agent 与可验证性（Eno Reyes 嘉宾讲座） | [代码库与后台 Agent](<CS146S_第10节课_2026-10-22_代码库就绪与后台编码Agent.md>) · [Agent Readiness 与可验证性](<CS146S_第10节课_2026-10-22_AgentReadiness与可验证性.md>) |
 | 11 | 2026-10-27 周二 | 智能体式代码审查：Claude Code / Greptile / Cloudflare 实践与评测 | [阅读笔记](<CS146S_第11节课_2026-10-27_智能体式代码审查.md>) |
 
-第 8、9 节笔记待补充。第 10 节聚焦 Agent-Ready Codebase（适合智能体工作的代码库）与后台编码 Agent；第 11 节讲 Agentic Code Review（智能体式代码审查），可结合第 10 节与作业 5 阅读。
+第 8、9 节笔记待补充。第 10 节的两篇笔记分别侧重代码库与后台 Agent 的整体实践，以及 Eno Reyes 嘉宾讲座中的 Agent Readiness（智能体就绪度）与可验证性，可结合 Week 4–5 作业阅读；第 11 节讲 Agentic Code Review（智能体式代码审查）。
 
 建议按顺序阅读：先理解智能体的工具循环，再看真实产品的组成、上下文组织，以及 MCP 和 Skills 如何接入实际工作。
 
@@ -45,6 +45,10 @@
 | Week 1 | 捕获并分析 Claude Code 会话 | Windows 下的 mitmproxy / CC Switch 中继脚本与抓包说明 | [作业要求](CS146s课程作业/week1/assignment.md) · [抓包配置](CS146s课程作业/week1/CAPTURE-SETUP.md) · [作答提纲](CS146s课程作业/week1/writeup.md) |
 | Week 2 | MCP Server 与认证 | 湖南师范大学教务系统的 Hunnu EAMS MCP 实现、配置模板与测试 | [作业要求](CS146s课程作业/week2/assignment.md) · [运行说明](CS146s课程作业/week2/README.md) · [作答提纲](CS146s课程作业/week2/writeup.md) |
 | Week 3 | 编写一个 Agent Skill | 上游作业原文与作答提纲；技能目录尚未开始写 | [作业要求](CS146s课程作业/week3/assignment.md) · [作答提纲](CS146s课程作业/week3/writeup.md) |
+| Week 4 | 让陌生代码库适合 Agent 工作 | 上游作业原文与作答提纲；探索代码库、编写 AGENTS.md / CLAUDE.md，并用两个小任务验证 | [作业要求](CS146s课程作业/week4/assignment.md) · [作答提纲](CS146s课程作业/week4/writeup.md) |
+| Week 5 | Agent Readiness 报告与对比分析 | 上游作业原文与作答提纲；评估三个开源仓库，比较就绪度、失败项与改进建议 | [作业要求](CS146s课程作业/week5/assignment.md) · [作答提纲](CS146s课程作业/week5/writeup.md) |
+
+Week 4–5 当前仅同步要求与未填写的上游模板，尚未提交作业成果或生成评估报告。同步来源版本见[作业目录说明](CS146s课程作业/README.md#作业导航与同步来源)。
 
 ### Week 2：Hunnu EAMS MCP
 
@@ -89,6 +93,7 @@ poetry run python -m hunnu_mcp
 ├── CS146S_第05节课_2026-10-06_AgentSkills实战与最佳实践.md
 ├── CS146S_第06节课_2026-10-08_常驻智能体工作原理.md
 ├── CS146S_第07节课_2026-10-13_定制Agent配置.md
+├── CS146S_第10节课_2026-10-22_AgentReadiness与可验证性.md
 ├── CS146S_第10节课_2026-10-22_代码库就绪与后台编码Agent.md
 ├── CS146S_第11节课_2026-10-27_智能体式代码审查.md
 ├── CS146S The Modern Software Developer/
@@ -103,7 +108,9 @@ poetry run python -m hunnu_mcp
     │   ├── README.md          MCP 运行说明
     │   ├── hunnu_mcp/         MCP 服务实现
     │   └── tests/             解析、会话与 MCP 协议测试
-    └── week3/                 作业原文与作答提纲
+    ├── week3/                 Agent Skill 作业原文与作答提纲
+    ├── week4/                 代码库 Agent 配置作业原文与作答提纲
+    └── week5/                 就绪度报告作业原文与作答提纲
 ```
 
 ## 来源与版权
